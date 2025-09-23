@@ -2,6 +2,16 @@ import streamlit as st
 import random
 
 st.set_page_config(page_title="Antena Meteorológica", page_icon="🌦️")
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: white;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 st.title("🌦️ Antena Meteorológica Online")
 
