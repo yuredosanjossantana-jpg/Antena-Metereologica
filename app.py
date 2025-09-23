@@ -13,7 +13,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title("🌦️ Antena Meteorológica Online")
+st.title("🌦️ :black[Antena Metereologica IFSP - Salto]")
 
 # Simulação de dados
 temperatura = random.randint(20, 35)
