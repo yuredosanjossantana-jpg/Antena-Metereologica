@@ -1,7 +1,7 @@
 import streamlit as st
 import random
 
-st.set_page_config(page_title="Antena Meteorológica", page_icon="🌦️")
+st.set_page_config(page_title="Antena Meteorológica IF", page_icon="🌦️")
 st.markdown(
     """
     <style>
@@ -12,9 +12,12 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
-st.title("🌦️ :black[Antena Metereologica IFSP - Salto]")
-st.markdown(":black[Antena Metereologica IFSP - Salto] and :red[red text]")
+st.title(
+    """
+    <h1 style='color:#000000;'>🌦️Antena Metereologica IFSP - Salto</h1>
+    """,
+    unsafe_allow_html=True
+)
 
 # Simulação de dados
 temperatura = random.randint(20, 35)
