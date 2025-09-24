@@ -14,6 +14,7 @@ st.markdown(
 )
 
 st.title("🌦️ :black[Antena Metereologica IFSP - Salto]")
+st.markdown(":black[Antena Metereologica IFSP - Salto] and :red[red text]")
 
 # Simulação de dados
 temperatura = random.randint(20, 35)
