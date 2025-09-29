@@ -20,7 +20,7 @@ st.markdown(
 )
 st.markdown(
     """
-    	<h1 style="
+    <div style="
 	color:#000000;
 	margin-left:0px;
         margin-right:auto; 
@@ -30,7 +30,8 @@ st.markdown(
         text-align:center;
 
    	">
-	🌦️Antena Metereologica IFSP - Salto</h1>
+	🌦️Antena Metereologica IFSP - Salto
+    </div>
     """,
     unsafe_allow_html=True
 )
