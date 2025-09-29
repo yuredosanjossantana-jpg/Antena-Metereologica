@@ -48,7 +48,7 @@ with col1:
  		display:flex;
         	align-items:flex-start;
         	justify-content:center;  
-		color:#D00003
+		color:#D00003;
 		font-size:28px;
 		font-family:Inria Serif;
         	text-align:center;
@@ -73,7 +73,7 @@ with col2:
  		display:flex;
         	align-items:flex-start;
         	justify-content:center;  
-		color:#D00003
+		color:#D00003;
 		font-size:28px;
 		font-family:Inria Serif;
         	text-align:center;
@@ -99,7 +99,7 @@ with col3:
  		display:flex;
         	align-items:flex-start;
         	justify-content:center;  
-		color:#D00003
+		color:#D00003;
 		font-size:28px;
 		font-family:Inria Serif;
         	text-align:center;
