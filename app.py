@@ -105,7 +105,7 @@ with col3:
         	text-align:center;
         	">
 		Humidade do ar:<br><br>
-		{humidade} "%"
+		{umidade} "%"
     	</div>
     	""",
    	unsafe_allow_html=True
