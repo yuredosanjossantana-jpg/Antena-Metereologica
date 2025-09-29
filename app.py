@@ -26,16 +26,22 @@ st.markdown(
         height:120px;
         background-color:#D0FFCC;
         border-radius:4px;
-	margin-left:27px;
+	margin-left:0px;
         margin-right:auto; 
-	margin-top:62px;
+	margin-top:40px;
+ 	display:flex;
+        align-items:flex-start;
+        justify-content:center;  
+	color:#FF0408;
+	font-size:24px;
+	font-family:Inria Serif;
+        text-align:center;
         ">
+	Temperatura:
     </div>
     """,
     unsafe_allow_html=True
 )
-
-
 
 # Simulação de dados
 temperatura = random.randint(20, 35)
