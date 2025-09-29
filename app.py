@@ -26,7 +26,7 @@ st.markdown(
 )
 
 st.markdown(
-    """
+    f"""
     <div style="
         width:165px;
         height:120px;
@@ -44,7 +44,7 @@ st.markdown(
         text-align:center;
         ">
 	Temperatura:<br><br>
-	f"{temperatura} °C
+	{temperatura} °C
     </div>
     """,
     unsafe_allow_html=True
