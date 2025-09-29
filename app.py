@@ -2,6 +2,12 @@ import streamlit as st
 import random
 
 st.set_page_config(page_title="Antena Meteorológica IF", page_icon="🌦️")
+
+# Simulação de dados
+temperatura = random.randint(20, 35)
+umidade = random.randint(40, 90)
+vento = random.randint(5, 20)
+
 st.markdown(
     """
     <style>
@@ -37,16 +43,13 @@ st.markdown(
 	font-family:Inria Serif;
         text-align:center;
         ">
-	Temperatura:
+	Temperatura:<br>
+	f"{temperatura} °C<br<br>
     </div>
     """,
     unsafe_allow_html=True
 )
 
-# Simulação de dados
-temperatura = random.randint(20, 35)
-umidade = random.randint(40, 90)
-vento = random.randint(5, 20)
 
 col1, col2, col3 = st.columns(3)
 col1.metric("Temperatura", f"{temperatura} °C")
