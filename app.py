@@ -54,7 +54,7 @@ with col1:
         	text-align:center;
         	">
 		Humidade do ar:<br><br>
-		{humidade} %
+		{temperatura} ºC
     	</div>
     	""",
    	unsafe_allow_html=True
