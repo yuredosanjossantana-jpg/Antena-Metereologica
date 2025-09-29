@@ -20,7 +20,17 @@ st.markdown(
 )
 st.markdown(
     """
-    <h1 style='color:#000000;'>🌦️Antena Metereologica IFSP - Salto</h1>
+    	<h1 style="
+	color:#000000;
+	margin-left:0px;
+        margin-right:auto; 
+	margin-top:40px;
+	font-size:2px;
+	font-family:Inria Serif;
+        text-align:center;
+
+   	">
+	🌦️Antena Metereologica IFSP - Salto</h1>
     """,
     unsafe_allow_html=True
 )
