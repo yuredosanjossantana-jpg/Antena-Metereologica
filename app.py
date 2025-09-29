@@ -43,8 +43,8 @@ st.markdown(
 	font-family:Inria Serif;
         text-align:center;
         ">
-	Temperatura:<br>
-	f"{temperatura} °C<br<br>
+	Temperatura:<br><br>
+	f"{temperatura} °C
     </div>
     """,
     unsafe_allow_html=True
