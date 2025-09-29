@@ -20,19 +20,16 @@ st.markdown(
 )
 st.markdown(
     """
-    <div style="
-	color:#000000;
-	margin-left:0px;
-        margin-right:auto; 
-	margin-top:40px;
-	font-size:2px;
-	font-family:Inria Serif;
+    <p style="
+        color:#000000;
+        font-size:28px;
+        font-family:Inria Serif;
         text-align:center;
-
-   	">
-	🌦️Antena Metereologica IFSP - Salto
-    </div>
-    """,
+        font-weight:bold;
+    ">
+    Antena Meteorológica IFSP-Salto
+    </p>
+     """,
     unsafe_allow_html=True
 )
 
