@@ -42,18 +42,18 @@ with col1:
         	height:120px;
         	background-color:#D0FFCC;
        		border-radius:4px;
-		margin-left:10px;
+		margin-left:0px;
         	margin-right:auto; 
 		margin-top:40px;
  		display:flex;
         	align-items:flex-start;
         	justify-content:center;  
 		color:#D00003
-		font-size:24px;
+		font-size:28px;
 		font-family:Inria Serif;
         	text-align:center;
         	">
-		Humidade do ar:<br><br>
+		Humidade do ar:<br><br><br>
 		{temperatura} ºC
     	</div>
     	""",
@@ -67,18 +67,18 @@ with col2:
         	height:120px;
         	background-color:#D0FFCC;
        		border-radius:4px;
-		margin-left:10px;
+		margin-left:0px;
         	margin-right:auto; 
 		margin-top:40px;
  		display:flex;
         	align-items:flex-start;
         	justify-content:center;  
 		color:#D00003
-		font-size:24px;
+		font-size:28px;
 		font-family:Inria Serif;
         	text-align:center;
         	">
-		Vel. do Vento:<br><br>
+		Vel. do Vento:<br><br><br>
 		{vento} km/h
     	</div>
     	""",
@@ -93,18 +93,18 @@ with col3:
         	height:120px;
         	background-color:#D0FFCC;
        		border-radius:4px;
-		margin-left:10px;
+		margin-left:0px;
         	margin-right:auto; 
 		margin-top:40px;
  		display:flex;
         	align-items:flex-start;
         	justify-content:center;  
 		color:#D00003
-		font-size:24px;
+		font-size:28px;
 		font-family:Inria Serif;
         	text-align:center;
         	">
-		Humidade do ar:<br><br>
+		Humidade do ar:<br><br><br>
 		{umidade} "%"
     	</div>
     	""",
