@@ -27,12 +27,14 @@ st.markdown(
         text-align:center;
         font-weight:bold;
     ">
-    Antena Meteorológica IFSP-Salto
+    🌦️Antena Meteorológica IFSP-Salto
     </p>
      """,
     unsafe_allow_html=True
 )
 
+col1, col2, col3 = st.columns(3)
+with col1:
 st.markdown(
     f"""
     <div style="
@@ -46,7 +48,7 @@ st.markdown(
  	display:flex;
         align-items:flex-start;
         justify-content:center;  
-	color:#FF0408;
+	color:#D00003
 	font-size:24px;
 	font-family:Inria Serif;
         text-align:center;
@@ -57,6 +59,57 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+with col2:
+st.markdown(
+    f"""
+    <div style="
+        width:165px;
+        height:120px;
+        background-color:#D0FFCC;
+        border-radius:4px;
+	margin-left:10;
+        margin-right:auto; 
+	margin-top:40px;
+ 	display:flex;
+        align-items:flex-start;
+        justify-content:center;  
+	color:#D00003
+	font-size:24px;
+	font-family:Inria Serif;
+        text-align:center;
+        ">
+	Vel. do Vento:<br><br>
+	{vento} km/h
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+with col3:
+st.markdown(
+    f"""
+    <div style="
+        width:165px;
+        height:120px;
+        background-color:#D0FFCC;
+        border-radius:4px;
+	margin-left:10px;
+        margin-right:auto; 
+	margin-top:40px;
+ 	display:flex;
+        align-items:flex-start;
+        justify-content:center;  
+	color:#D00003
+	font-size:24px;
+	font-family:Inria Serif;
+        text-align:center;
+        ">
+	Humidade do ar:<br><br>
+	{humidade} %
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
 
 
 col1, col2, col3 = st.columns(3)
