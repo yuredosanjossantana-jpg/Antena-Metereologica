@@ -78,8 +78,8 @@ with col2:
 		font-family:Inria Serif;
         	text-align:center;
         	">
-		Humidade do ar:<br><br>
-		{humidade} %
+		Vel. do Vento:<br><br>
+		{vento} km/h
     	</div>
     	""",
    	unsafe_allow_html=True
@@ -105,7 +105,7 @@ with col3:
         	text-align:center;
         	">
 		Humidade do ar:<br><br>
-		{humidade} %
+		{humidade} "%"
     	</div>
     	""",
    	unsafe_allow_html=True
