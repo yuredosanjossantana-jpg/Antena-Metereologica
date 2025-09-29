@@ -49,11 +49,11 @@ with col1:
         	align-items:flex-start;
         	justify-content:center;  
 		color:#D00003;
-		font-size:28px;
+		font-size:24px;
 		font-family:Inria Serif;
         	text-align:center;
         	">
-		Humidade do ar:<br><br><br>
+		Humidade do ar:<br><br>
 		{temperatura} ºC
     	</div>
     	""",
@@ -74,11 +74,11 @@ with col2:
         	align-items:flex-start;
         	justify-content:center;  
 		color:#D00003;
-		font-size:28px;
+		font-size:24px;
 		font-family:Inria Serif;
         	text-align:center;
         	">
-		Vel. do Vento:<br><br><br>
+		Vel. do Vento:<br><br>
 		{vento} km/h
     	</div>
     	""",
@@ -100,11 +100,11 @@ with col3:
         	align-items:flex-start;
         	justify-content:center;  
 		color:#D00003;
-		font-size:28px;
+		font-size:24px;
 		font-family:Inria Serif;
         	text-align:center;
         	">
-		Humidade do ar:<br><br><br>
+		Humidade do ar:<br><br>
 		{umidade} "%"
     	</div>
     	""",
