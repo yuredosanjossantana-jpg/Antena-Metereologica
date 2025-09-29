@@ -19,6 +19,24 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+st.markdown(
+    """
+    <div style="
+        width:165px;
+        height:120px;
+        background-color:#D0FFCC;
+        border-radius:4px;
+	margin-left:27px;
+        margin-right:auto; 
+	margin-top:62px;
+        ">
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+
+
 # Simulação de dados
 temperatura = random.randint(20, 35)
 umidade = random.randint(40, 90)
