@@ -12,7 +12,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-st.title(
+st.markdown(
     """
     <h1 style='color:#000000;'>🌦️Antena Metereologica IFSP - Salto</h1>
     """,
