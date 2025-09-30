@@ -116,18 +116,3 @@ with col3:
 
 dados = [random.randint(20, 35) for _ in range(7)]
 st.line_chart(dados)
-
-placeholder = st.empty()
-
-while True:
-    agora = datetime.datetime.now().strftime("%H:%M")
-    placeholder.markdown(
-        f"
-	<div style="
-		text-align:center; 
-		color:#D00003;'>{agora}
-	</div>",
-       	unsafe_allow_html=True
-    )
-    time.sleep(1)  # atualiza a cada 1 segundo
-
