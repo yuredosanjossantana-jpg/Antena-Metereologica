@@ -1,6 +1,8 @@
 import streamlit as st
 import random
+import datetime
 
+agora = datetime.datetime.now().strftime("%H:%M")
 st.set_page_config(page_title="Antena Meteorológica IF", page_icon="🌦️")
 
 # Simulação de dados
@@ -114,3 +116,43 @@ with col3:
 
 dados = [random.randint(20, 35) for _ in range(7)]
 st.line_chart(dados)
+
+while True:
+    agora = datetime.datetime.now().strftime("%H:%M")
+    placeholder.markdown(
+        f"
+	<div style="
+		text-align:center; 
+		color:#D00003;'>{agora}
+	</div>",
+       	unsafe_allow_html=True
+    )
+    time.sleep(1)  # atualiza a cada 1 segundo
+
+st.markdown(
+    	f"""
+    	<div style="
+        	width:165px;
+        	height:120px;
+        	background-color:#D0FFCC;
+       		border-radius:4px;
+		margin-left:0px;
+        	margin-right:auto; 
+		margin-top:40px;
+ 		display:flex;
+        	align-items:flex-start;
+        	justify-content:center;  
+		color:#D00003;
+		font-size:24px;
+		font-family:Inria Serif;
+        	text-align:center;
+        	">
+		Humidade do ar:<br><br>
+		{umidade} %
+    	</div>
+    	""",
+   	unsafe_allow_html=True
+)
+
+
+
