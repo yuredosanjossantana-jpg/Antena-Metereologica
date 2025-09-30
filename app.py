@@ -53,8 +53,8 @@ with col1:
 		font-family:Inria Serif;
         	text-align:center;
         	">
-		Humidade do ar:<br><br>
-		{temperatura} ºC
+		Temperatura:<br><br>
+		{temperatura} °C
     	</div>
     	""",
    	unsafe_allow_html=True
@@ -105,19 +105,12 @@ with col3:
         	text-align:center;
         	">
 		Humidade do ar:<br><br>
-		{umidade} "%"
+		{umidade} %
     	</div>
     	""",
    	unsafe_allow_html=True
 )
 
 
-
-col1, col2, col3 = st.columns(3)
-col1.metric("Temperatura", f"{temperatura} °C")
-col2.metric("Umidade", f"{umidade} %")
-col3.metric("Velocidade do vento", f"{vento} km/h")
-
-# Gráfico exemplo
 dados = [random.randint(20, 35) for _ in range(7)]
 st.line_chart(dados)
