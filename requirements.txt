@@ -1,3 +1,5 @@
+streamlit
+flask
 pandas
 requests
 streamlit-autorefresh
