@@ -54,7 +54,7 @@ st.markdown(
         font-family:Inria Serif;
         text-align:center;
         font-weight:bold;
-	margin-top:10px;
+	margin-top:0px;
     ">
     🌦️Antena Meteorológica IFSP-Salto
     </p>
