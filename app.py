@@ -16,19 +16,21 @@ def get_last_data():
         if r.status_code == 200:
             data = r.json()
             if data:
-                # Pega a última leitura (última chave no dicionário)
                 last_key = list(data.keys())[-1]
                 last_data = data[last_key]
 
                 temperatura = last_data.get("Temperatura", 0)
                 umidade = last_data.get("Umidade", 0)
                 vento = last_data.get("Vento", 0)
+                hora = last_data.get("Time", "N/A")  # <--- default seguro
 
                 return temperatura, umidade, vento, hora
         else:
             st.error(f"Erro HTTP: {r.status_code}")
     except Exception as e:
         st.error(f"Erro ao conectar com o Firebase: {e}")
+
+    # Se deu erro ou não houver dados, devolve valores padrão
     return 0, 0, 0, "N/A"
 
 temperatura, umidade, vento, hora = get_last_data()
