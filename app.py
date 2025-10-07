@@ -12,7 +12,7 @@ st.set_page_config(page_title="Antena Meteorológica IF", page_icon="🌦️")
 
 def get_last_data():
     try:
-        r = requests.get(firebase_url, timeout=5)
+        r = requests.get(URL, timeout=5)
         if r.status_code == 200:
             data = r.json()
             if data:
