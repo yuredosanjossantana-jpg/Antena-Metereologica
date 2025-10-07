@@ -21,15 +21,17 @@ def get_last_data():
                 last_data = data[last_key]
 
                 temperatura = last_data.get("Temperatura", 0)
-                hora = last_data.get("Time", "N/A")
+                umidade = last_data.get("Umidade", 0)
+                vento = last_data.get("Vento", 0)
 
-                return temperatura, hora
+                return temperatura, umidade, vento, hora
         else:
             st.error(f"Erro HTTP: {r.status_code}")
     except Exception as e:
         st.error(f"Erro ao conectar com o Firebase: {e}")
     return 0, 0, 0, "N/A"
-temperatura, hora= get_last_data()
+
+temperatura, umidade, vento, hora = get_last_data()
 
 st.markdown(
     """
