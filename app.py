@@ -51,8 +51,15 @@ st.markdown(
 st.markdown(
     """
     <style>
-    .stApp {
-        background-color: white;
+    /* Remove padding do topo do app */
+    .css-1d391kg {  /* container principal */
+        padding-top: 0rem;
+    }
+
+    /* Remove espaçamento padrão do Streamlit entre blocos */
+    .block-container {
+        padding-top: 0rem;
+        padding-bottom: 0rem;
     }
     </style>
     """,
