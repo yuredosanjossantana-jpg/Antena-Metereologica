@@ -29,6 +29,7 @@ def get_last_data():
     except Exception as e:
         st.error(f"Erro ao conectar com o Firebase: {e}")
     return 0, 0, 0, "N/A"
+temperatura, hora= get_last_data()
 
 st.markdown(
     """
@@ -55,8 +56,6 @@ st.markdown(
      """,
     unsafe_allow_html=True
 )
-
-data = get_data()
 
 col1, col2, col3 = st.columns(3)
 with col1:
