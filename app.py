@@ -7,7 +7,7 @@ from streamlit_autorefresh import st_autorefresh
 
 st_autorefresh(interval=120000, key="update")
 URL = "https://antena-metereologica-default-rtdb.firebaseio.com/leituras.json"
-agora = datetime.datetime.now().strftime("%H:%M")
+data_atual = datetime.datetime.now().strftime("%d/%m/%Y")
 st.set_page_config(page_title="Antena Meteorológica IF", page_icon="🌦️")
 
 def get_last_data():
@@ -143,3 +143,69 @@ with col3:
 
 dados = [random.randint(20, 35) for _ in range(7)]
 st.line_chart(dados)
+
+
+col4, col5, col6 = st.columns(3)
+
+with col4:
+	st.markdown(
+    	f"""
+    	<div style="
+		margin-left:0px;
+        	margin-right:auto; 
+		margin-top:10px;
+ 		display:flex;
+        	align-items:flex-start;
+        	justify-content:center;  
+		color:black;
+		font-size:24px;
+		font-family:Inria Serif;
+        	text-align:center;
+        	">
+		{hora}
+    	</div>
+    	""",
+   	unsafe_allow_html=True
+)
+
+with col5:
+	st.markdown(
+    	f"""
+    	<div style="
+		margin-top:10px;
+		margin-left:0px;
+        	margin-right:auto; 
+ 		display:flex;
+        	align-items:flex-start;
+        	justify-content:center;  
+		color:black;
+		font-size:24px;
+		font-family:Inria Serif;
+        	text-align:center;
+        	">
+		{data_atual}
+    	</div>
+    	""",
+   	unsafe_allow_html=True
+)
+
+with col6:
+	st.markdown(
+    	f"""
+    	<div style="
+		margin-top:10px;
+		margin-left:0px;
+        	margin-right:auto; 
+ 		display:flex;
+        	align-items:flex-start;
+        	justify-content:center;  
+		color:black;
+		font-size:24px;
+		font-family:Inria Serif;
+        	text-align:center;
+        	">
+		Salto/SP
+    	</div>
+    	""",
+   	unsafe_allow_html=True
+)
