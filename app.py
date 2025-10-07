@@ -23,7 +23,7 @@ def get_last_data():
                 temperatura = last_data.get("Temperatura", 0)
                 hora = last_data.get("Time", "N/A")
 
-                return temperatura
+                return temperatura, hora
         else:
             st.error(f"Erro HTTP: {r.status_code}")
     except Exception as e:
