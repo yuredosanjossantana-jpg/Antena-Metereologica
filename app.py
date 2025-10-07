@@ -1,38 +1,41 @@
 import streamlit as st
 import random
 import datetime
-from flask import Flask, request
-import threading
+import pandas as pd
+import requests
+from streamlit_autorefresh import st_autorefresh
 
-# ============== SERVIDOR FLASK (para receber dados do ESP32) ==============
-app_flask = Flask(__name__)
-
-# Dicionário global com os últimos dados recebidos
-dados_esp32 = {"temperatura": 0, "umidade": 0, "vento": 0, "hora": ""}
-
-@app_flask.route('/update', methods=['POST'])
-def update():
-    global dados_esp32
-    data = request.get_json()
-    if data:
-        dados_esp32.update(data)
-        print("📡 Dados recebidos:", dados_esp32)
-        return "OK", 200
-    return "Erro no formato", 400
-
-def run_flask():
-    app_flask.run(host="0.0.0.0", port=5000)
-
-# Inicia o servidor Flask em uma thread separada
-threading.Thread(target=run_flask, daemon=True).start()
-
-# ============== INTERFACE STREAMLIT ==============
+st_autorefresh(interval=120000, key="update")
+URL = "https://antena-metereologica-default-rtdb.firebaseio.com/leituras.json"
+agora = datetime.datetime.now().strftime("%H:%M")
 st.set_page_config(page_title="Antena Meteorológica IF", page_icon="🌦️")
+
+def get_last_data():
+    try:
+        r = requests.get(firebase_url, timeout=5)
+        if r.status_code == 200:
+            data = r.json()
+            if data:
+                # Pega a última leitura (última chave no dicionário)
+                last_key = list(data.keys())[-1]
+                last_data = data[last_key]
+
+                temperatura = last_data.get("Temperatura", 0)
+                hora = last_data.get("Time", "N/A")
+
+                return temperatura
+        else:
+            st.error(f"Erro HTTP: {r.status_code}")
+    except Exception as e:
+        st.error(f"Erro ao conectar com o Firebase: {e}")
+    return 0, 0, 0, "N/A"
 
 st.markdown(
     """
     <style>
-    .stApp { background-color: white; }
+    .stApp {
+        background-color: white;
+    }
     </style>
     """,
     unsafe_allow_html=True
@@ -49,19 +52,90 @@ st.markdown(
     ">
     🌦️Antena Meteorológica IFSP-Salto
     </p>
-    """,
+     """,
     unsafe_allow_html=True
 )
 
-# Mostra os dados do ESP32
-st.subheader("📊 Dados em tempo real do ESP32")
+data = get_data()
 
 col1, col2, col3 = st.columns(3)
 with col1:
-    st.metric("🌡️ Temperatura", f"{dados_esp32['temperatura']} °C")
+	st.markdown(
+    	f"""
+    	<div style="
+        	width:165px;
+        	height:120px;
+        	background-color:#D0FFCC;
+       		border-radius:4px;
+		margin-left:0px;
+        	margin-right:auto; 
+		margin-top:40px;
+ 		display:flex;
+        	align-items:flex-start;
+        	justify-content:center;  
+		color:#D00003;
+		font-size:24px;
+		font-family:Inria Serif;
+        	text-align:center;
+        	">
+		Temperatura:<br><br>
+		{temperatura} °C
+    	</div>
+    	""",
+   	unsafe_allow_html=True
+)
 with col2:
-    st.metric("💨 Vento", f"{dados_esp32['vento']} km/h")
-with col3:
-    st.metric("💧 Umidade", f"{dados_esp32['umidade']} %")
+	st.markdown(
+    	f"""
+    	<div style="
+        	width:165px;
+        	height:120px;
+        	background-color:#D0FFCC;
+       		border-radius:4px;
+		margin-left:0px;
+        	margin-right:auto; 
+		margin-top:40px;
+ 		display:flex;
+        	align-items:flex-start;
+        	justify-content:center;  
+		color:#D00003;
+		font-size:24px;
+		font-family:Inria Serif;
+        	text-align:center;
+        	">
+		Vel. do Vento:<br><br>
+		{vento} km/h
+    	</div>
+    	""",
+   	unsafe_allow_html=True
+)
 
-st.write(f"⏱️ Atualizado às: {dados_esp32['hora']}")
+with col3:
+	st.markdown(
+    	f"""
+    	<div style="
+        	width:165px;
+        	height:120px;
+        	background-color:#D0FFCC;
+       		border-radius:4px;
+		margin-left:0px;
+        	margin-right:auto; 
+		margin-top:40px;
+ 		display:flex;
+        	align-items:flex-start;
+        	justify-content:center;  
+		color:#D00003;
+		font-size:24px;
+		font-family:Inria Serif;
+        	text-align:center;
+        	">
+		Humidade do ar:<br><br>
+		{umidade} %
+    	</div>
+    	""",
+   	unsafe_allow_html=True
+)
+
+
+dados = [random.randint(20, 35) for _ in range(7)]
+st.line_chart(dados)
