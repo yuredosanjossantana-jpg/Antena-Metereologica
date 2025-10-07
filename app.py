@@ -38,6 +38,19 @@ temperatura, umidade, vento, hora = get_last_data()
 st.markdown(
     """
     <style>
+    /* Remove o padding do topo do app */
+    .css-18e3th9 {  /* classe do container principal */
+        padding-top: 0rem;
+        margin-top: 0rem;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    """
+    <style>
     .stApp {
         background-color: white;
     }
