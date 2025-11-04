@@ -163,7 +163,8 @@ dados = [random.randint(20, 35) for _ in range(7)]
 st.line_chart(dados)
 
 dias = [
-    (datetime.datetime.now() - datetime.timedelta(days=i)).strftime("%d")
+        (datetime.datetime.now() - datetime.timedelta(days=i)).strftime("%d/%m")
+
     for i in range(7)]
 dias.reverse()
 
