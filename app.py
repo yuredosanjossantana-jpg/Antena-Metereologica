@@ -167,8 +167,8 @@ dias = [
 
     for i in range(7)]
 dias.reverse()
-if (datetime.datetime.now().strftime("%d") = dias[i]
-	dias[i] = "Agora")
+if (datetime.datetime.now().strftime("%d/%m") = dias[i])
+	dias[i] = "Agora"
 
 selection = st.pills(" ", dias, selection_mode="single")
 
