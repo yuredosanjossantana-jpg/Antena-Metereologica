@@ -162,6 +162,12 @@ with col3:
 dados = [random.randint(20, 35) for _ in range(7)]
 st.line_chart(dados)
 
+dias = [
+    (datetime.datetime.now() - datetime.timedelta(days=i)).strftime("%d")
+    for i in range(7)]
+dias.reverse()
+
+selection = st.pills(" ", dias, selection_mode="single")
 
 col4, col5, col6 = st.columns(3)
 
