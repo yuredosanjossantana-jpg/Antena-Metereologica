@@ -24,18 +24,16 @@ def get_last_data():
                 vento = last_data.get("Vento", 0)
                 hora = last_data.get("Hora", "N/A")  # <--- default seguro
 		data = last_data.get("Data", "N/A")  # <--- default seguro
-
-
-                return temperatura, umidade, vento, hora
+                return temperatura, umidade, vento, hora, data
         else:
             st.error(f"Erro HTTP: {r.status_code}")
     except Exception as e:
         st.error(f"Erro ao conectar com o Firebase: {e}")
 
     # Se deu erro ou não houver dados, devolve valores padrão
-    return 0, 0, 0, "N/A"
+    return 0, 0, 0, "N/A","N/A"
 
-temperatura, umidade, vento, hora = get_last_data()
+temperatura, umidade, vento, hora = get_last_data(), data = get_last_data()
 
 st.markdown(
     """
