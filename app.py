@@ -22,7 +22,9 @@ def get_last_data():
                 temperatura = last_data.get("Temperatura", 0)
                 umidade = last_data.get("Umidade", 0)
                 vento = last_data.get("Vento", 0)
-                hora = last_data.get("Time", "N/A")  # <--- default seguro
+                hora = last_data.get("Hora", "N/A")  # <--- default seguro
+		data = last_data.get("Data", "N/A")  # <--- default seguro
+
 
                 return temperatura, umidade, vento, hora
         else:
@@ -210,7 +212,7 @@ with col5:
 		font-family:Inria Serif;
         	text-align:center;
         	">
-		{data_atual}
+		{data}
     	</div>
     	""",
    	unsafe_allow_html=True
