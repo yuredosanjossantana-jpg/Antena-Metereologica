@@ -33,8 +33,7 @@ def get_last_data():
     # Se deu erro ou não houver dados, devolve valores padrão
     return 0, 0, 0, "N/A","N/A"
 
-temperatura, umidade, vento, hora = get_last_data(), data = get_last_data()
-
+temperatura, umidade, vento, hora, data = get_last_data()
 st.markdown(
     """
     <style>
