@@ -150,8 +150,8 @@ with col3:
 		font-family:Inria Serif;
         	text-align:center;
         	">
-		Humidade do ar:<br><br>
-		{umidade} %
+		Umidade do ar:<br><br>
+		{umidade}%
     	</div>
     	""",
    	unsafe_allow_html=True
