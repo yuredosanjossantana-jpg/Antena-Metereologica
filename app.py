@@ -36,6 +36,17 @@ def get_last_data():
     return 0, 0, 0, "N/A","N/A"
 
 temperatura, umidade, vento, hora, data = get_last_data()
+
+eh = (umidade/100) * 6.105 * \
+        (2.71828 ** ((17.27 * temperatura) / (237.7 + temperatura)))    
+ta = (
+        temperatura
+        + 0.33 * eh
+        - 0.70 * vento
+        - 4.00
+    )
+ta = round(ta,1)
+
 st.markdown(
     """
     <style>
@@ -81,7 +92,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 with col1:
 	st.markdown(
     	f"""
@@ -158,6 +169,32 @@ with col3:
     	""",
    	unsafe_allow_html=True
 )
+with col4:
+	st.markdown(
+    	f"""
+    	<div style="
+        	width:165px;
+        	height:120px;
+        	background-color:#D0FFCC;
+       		border-radius:4px;
+		margin-left:0px;
+        	margin-right:auto; 
+		margin-top:40px;
+ 		display:flex;
+        	align-items:flex-start;
+        	justify-content:center;  
+		color:#D00003;
+		font-size:24px;
+		font-family:Inria Serif;
+        	text-align:center;
+        	">
+		Sensação Termica:<br><br>
+		{ta} °C
+    	</div>
+    	""",
+   	unsafe_allow_html=True
+)
+
 
 
 dados = [random.randint(20, 35) for _ in range(7)]
