@@ -188,7 +188,7 @@ with col4:
 		font-family:Inria Serif;
         	text-align:center;
         	">
-		Sensação Termica:<br><br>
+		Sensação Termica:<br><br><br>
 		{ta} °C
     	</div>
     	""",
