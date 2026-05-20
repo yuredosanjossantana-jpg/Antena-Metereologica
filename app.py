@@ -184,7 +184,7 @@ with col4:
         	align-items:flex-start;
         	justify-content:center;  
 		color:#D00003;
-		font-size:18px;
+		font-size:22px;
 		font-family:Inria Serif;
         	text-align:center;
         	">
