@@ -173,7 +173,7 @@ with col4:
 	st.markdown(
     	f"""
     	<div style="
-        	width:165px;
+        	width:180px;
         	height:120px;
         	background-color:#D0FFCC;
        		border-radius:4px;
@@ -184,11 +184,11 @@ with col4:
         	align-items:flex-start;
         	justify-content:center;  
 		color:#D00003;
-		font-size:22px;
+		font-size:24px;
 		font-family:Inria Serif;
         	text-align:center;
         	">
-		Sensação Termica:<br><br><br>
+		Sensação Termica:<br><br>
 		{ta} °C
     	</div>
     	""",
