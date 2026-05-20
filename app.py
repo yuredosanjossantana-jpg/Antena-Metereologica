@@ -173,7 +173,7 @@ with col4:
 	st.markdown(
     	f"""
     	<div style="
-        	width:185px;
+        	width:190px;
         	height:120px;
         	background-color:#D0FFCC;
        		border-radius:4px;
