@@ -23,6 +23,7 @@ def get_last_data():
                 umidade = last_data.get("Umidade", 0)
                 vento = last_data.get("Vento", 0)
                 vento=vento*3.6
+                vento = round(vento,1)
                 hora = last_data.get("Hora", "N/A")  # <--- default seguro
                 data = last_data.get("Data", "N/A")  # <--- default seguro
                 return temperatura, umidade, vento, hora, data
