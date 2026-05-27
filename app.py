@@ -86,7 +86,7 @@ st.markdown(
         font-weight:bold;
 	margin-top:0px;
     ">
-    🌦️Antena Meteorológica IFSP-Salto
+    🌦️Estação Meteorológica IFSP-Salto
     </p>
      """,
     unsafe_allow_html=True
