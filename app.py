@@ -239,6 +239,8 @@ data_teste = datetime.date(2026, 5, 29)
 
 df_hoje = df[
     df["datetime"].dt.date == data_teste
+
+df_hoje["hora"] = df_hoje["datetime"].dt.hour
 ]
 df_media = (
     df_hoje
