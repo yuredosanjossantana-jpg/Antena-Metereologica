@@ -249,7 +249,8 @@ fig.update_layout(
 st.plotly_chart(
     fig,
     use_container_width=True
-)dias = [
+)
+dias = [
         (datetime.datetime.now() - datetime.timedelta(days=i)).strftime("%d/%m")
 
     for i in range(7)]
