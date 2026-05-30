@@ -240,9 +240,9 @@ fig.add_trace(
 
 fig.update_layout(
     xaxis_title="Hora",
-    yaxis_title="Temperatura (°C)",
+    yaxis_title="Temperatura (°C)",font=dict(size=16)
     template="plotly_white",
-    height=800
+    height=600
 )
 
 st.plotly_chart(
