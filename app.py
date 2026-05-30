@@ -198,96 +198,58 @@ with col4:
    	unsafe_allow_html=True
 )
 
-df = get_history()
+horas = [f"{i:02d}:00" for i in range(24)]
 
-if not df.empty:
+# Temperaturas aleatórias
+temperaturas = [
+    random.uniform(18, 32)
+    for _ in range(24)
+]
 
-    # Converte Data + Hora
-    df["datetime"] = pd.to_datetime(
-        df["Data"] + " " + df["Hora"],
-        dayfirst=True,
-        errors="coerce"
+# Dados que aparecerão no tooltip
+umidades = [
+    random.uniform(50, 95)
+    for _ in range(24)
+]
+
+ventos = [
+    random.uniform(0, 15)
+    for _ in range(24)
+]
+
+fig = go.Figure()
+
+fig.add_trace(
+    go.Scatter(
+        x=horas,
+        y=temperaturas,
+        mode="lines+markers",
+
+        customdata=list(
+            zip(umidades, ventos)
+        ),
+
+        hovertemplate=
+        "<b>%{x}</b><br>" +
+        "🌡️ Temperatura: %{y:.1f} °C<br>" +
+        "💧 Umidade: %{customdata[0]:.1f}%<br>" +
+        "💨 Vento: %{customdata[1]:.1f} km/h<br>" +
+        "<extra></extra>"
     )
+)
 
-    # Remove apenas datas inválidas
-    df = df.dropna(subset=["datetime"])
+fig.update_layout(
+    title="Temperatura nas Últimas 24 Horas",
+    xaxis_title="Hora",
+    yaxis_title="Temperatura (°C)",
+    template="plotly_white",
+    height=450
+)
 
-    # Ordena
-    df = df.sort_values("datetime")
-
-    # Converte colunas numéricas
-    df["Temperatura"] = pd.to_numeric(df["Temperatura"], errors="coerce")
-    df["Umidade"] = pd.to_numeric(df["Umidade"], errors="coerce")
-    df["Vento"] = pd.to_numeric(df["Vento"], errors="coerce")
-
-    # Média por hora
-    df_hora = (
-        df
-        .set_index("datetime")
-        .resample("1h")
-        .agg({
-            "Temperatura": "mean",
-            "Umidade": "mean",
-            "Vento": "mean"
-        })
-        .reset_index()
-    )
-
-    # Últimas 24 horas
-    agora = pd.Timestamp.now()
-
-    df_hora = df_hora[
-        df_hora["datetime"] >= agora - pd.Timedelta(hours=24)
-    ]
-
-    # Remove apenas horas sem temperatura
-    df_hora = df_hora.dropna(subset=["Temperatura"])
-
-    if not df_hora.empty:
-
-        fig = go.Figure()
-
-        fig.add_trace(
-            go.Scatter(
-                x=df_hora["datetime"],
-                y=df_hora["Temperatura"],
-                mode="lines+markers",
-                connectgaps=False,
-
-                customdata=df_hora[
-                    ["Umidade", "Vento"]
-                ].values,
-
-                hovertemplate=
-                "<b>%{x}</b><br>" +
-                "🌡️ Temperatura: %{y:.1f} °C<br>" +
-                "💧 Umidade: %{customdata[0]:.1f}%<br>" +
-                "💨 Vento: %{customdata[1]:.1f} km/h<br>" +
-                "<extra></extra>"
-            )
-        )
-
-        fig.update_layout(
-            title="Temperatura Média Horária - Últimas 24h",
-            xaxis_title="Horário",
-            yaxis_title="Temperatura (°C)",
-            hovermode="closest",
-            template="plotly_white",
-            height=500
-        )
-
-        st.plotly_chart(
-            fig,
-            use_container_width=True
-        )
-
-    else:
-        st.warning("Não há dados suficientes para gerar o gráfico.")
-
-else:
-    st.warning("Nenhum dado encontrado no Firebase.")
-
-dias = [
+st.plotly_chart(
+    fig,
+    use_container_width=True
+)dias = [
         (datetime.datetime.now() - datetime.timedelta(days=i)).strftime("%d/%m")
 
     for i in range(7)]
