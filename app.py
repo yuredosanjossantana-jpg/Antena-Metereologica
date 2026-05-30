@@ -199,30 +199,25 @@ with col4:
 )
 
 def carregar_dados():
-    try:
-        r = requests.get(URL, timeout=10)
+    df["datetime"] = pd.to_datetime(
+    df["Data"] + " " + df["Hora"],
+    dayfirst=True,
+    errors="coerce"
+)
 
-        if r.status_code == 200:
-            data = r.json()
+# Remove datas inválidas
+df = df.dropna(subset=["datetime"])
 
-            registros = []
+# Data de hoje
+hoje = datetime.datetime.now().date()
 
-            for _, value in data.items():
+# Filtra apenas registros de hoje
+df_hoje = df[
+    df["datetime"].dt.date == hoje
+]
 
-                registros.append({
-                    "Data": value.get("Data"),
-                    "Hora": value.get("Hora"),
-                    "Temperatura": value.get("Temperatura"),
-                    "Umidade": value.get("Umidade"),
-                    "Vento": value.get("Vento", 0) * 3.6
-                })
-
-            return pd.DataFrame(registros)
-
-    except Exception as e:
-        st.error(e)
-
-    return pd.DataFrame()
+st.write("Registros de hoje:", len(df_hoje))
+st.write(df_hoje.head())
 
 df = carregar_dados()
 
