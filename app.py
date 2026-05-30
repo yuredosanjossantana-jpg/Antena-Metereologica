@@ -260,23 +260,13 @@ st.write(df_media)
 
 horas = [f"{i:02d}:00" for i in range(24)]
 
-# Temperaturas aleatórias
-temperaturas = [
-    random.uniform(18, 32)
-    for _ in range(24)
-]
+horas = df_media["hora"]
 
-# Dados que aparecerão no tooltip
-umidades = [
-    random.uniform(50, 95)
-    for _ in range(24)
-]
+temperaturas = df_media["Temperatura"]
 
-ventos = [
-    random.uniform(0, 15)
-    for _ in range(24)
-]
+umidades = df_media["Umidade"]
 
+ventos = df_media["Vento"]
 fig = go.Figure()
 
 fig.add_trace(
