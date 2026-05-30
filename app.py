@@ -4,6 +4,9 @@ import datetime
 import pandas as pd
 import requests
 from streamlit_autorefresh import st_autorefresh
+import plotly.graph_objects as go
+from datetime import timedelta
+
 
 st_autorefresh(interval=120000, key="update")
 URL = "https://antena-metereologica-default-rtdb.firebaseio.com/leituras.json"
@@ -195,10 +198,42 @@ with col4:
    	unsafe_allow_html=True
 )
 
+def get_history():
+    try:
+        r = requests.get(URL, timeout=10)
 
+        if r.status_code == 200:
+            data = r.json()
 
-dados = [random.randint(20, 35) for _ in range(7)]
-st.line_chart(dados)
+            registros = []
+
+            for _, value in data.items():
+
+                temperatura = value.get("Temperatura")
+                umidade = value.get("Umidade")
+                vento = value.get("Vento", 0) * 3.6
+
+                data_leitura = value.get("Data")
+                hora_leitura = value.get("Hora")
+
+                if data_leitura and hora_leitura:
+
+                    registros.append({
+                        "Data": data_leitura,
+                        "Hora": hora_leitura,
+                        "Temperatura": temperatura,
+                        "Umidade": umidade,
+                        "Vento": vento
+                    })
+
+            return pd.DataFrame(registros)
+
+    except Exception as e:
+        st.error(f"Erro ao carregar histórico: {e}")
+
+    return pd.DataFrame()
+
+st.plotly_chart(fig, use_container_width=True)
 
 dias = [
         (datetime.datetime.now() - datetime.timedelta(days=i)).strftime("%d/%m")
