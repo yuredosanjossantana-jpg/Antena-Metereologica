@@ -244,7 +244,7 @@ fig.update_layout(
 
     font=dict(
         size=16
-    )
+    ),
     template="plotly_white",
     height=600
 )
