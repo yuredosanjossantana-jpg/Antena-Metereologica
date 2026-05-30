@@ -199,7 +199,33 @@ with col4:
 )
 
 def carregar_dados():
-    df["datetime"] = pd.to_datetime(
+    try:
+        r = requests.get(URL, timeout=10)
+
+        if r.status_code == 200:
+            data = r.json()
+
+            registros = []
+
+            for _, value in data.items():
+
+                registros.append({
+                    "Data": value.get("Data"),
+                    "Hora": value.get("Hora"),
+                    "Temperatura": value.get("Temperatura"),
+                    "Umidade": value.get("Umidade"),
+                    "Vento": value.get("Vento", 0) * 3.6
+                })
+
+            return pd.DataFrame(registros)
+
+    except Exception as e:
+        st.error(e)
+
+    return pd.DataFrame()
+
+df = carregar_dados()
+df["datetime"] = pd.to_datetime(
     df["Data"] + " " + df["Hora"],
     dayfirst=True,
     errors="coerce"
@@ -218,8 +244,6 @@ df_hoje = df[
 
 st.write("Registros de hoje:", len(df_hoje))
 st.write(df_hoje.head())
-
-df = carregar_dados()
 
 st.write(df.head())
 st.write("Quantidade de registros:", len(df))
