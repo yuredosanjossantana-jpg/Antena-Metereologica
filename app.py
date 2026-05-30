@@ -235,11 +235,10 @@ df["datetime"] = pd.to_datetime(
 df = df.dropna(subset=["datetime"])
 
 # Data de hoje
-hoje = datetime.datetime.now().date()
+data_teste = datetime.date(2026, 5, 29)
 
-# Filtra apenas registros de hoje
 df_hoje = df[
-    df["datetime"].dt.date == hoje
+    df["datetime"].dt.date == data_teste
 ]
 
 st.write("Registros de hoje:", len(df_hoje))
