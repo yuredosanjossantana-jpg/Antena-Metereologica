@@ -198,6 +198,37 @@ with col4:
    	unsafe_allow_html=True
 )
 
+def carregar_dados():
+    try:
+        r = requests.get(URL, timeout=10)
+
+        if r.status_code == 200:
+            data = r.json()
+
+            registros = []
+
+            for _, value in data.items():
+
+                registros.append({
+                    "Data": value.get("Data"),
+                    "Hora": value.get("Hora"),
+                    "Temperatura": value.get("Temperatura"),
+                    "Umidade": value.get("Umidade"),
+                    "Vento": value.get("Vento", 0) * 3.6
+                })
+
+            return pd.DataFrame(registros)
+
+    except Exception as e:
+        st.error(e)
+
+    return pd.DataFrame()
+
+df = carregar_dados()
+
+st.write(df.head())
+st.write("Quantidade de registros:", len(df))
+
 horas = [f"{i:02d}:00" for i in range(24)]
 
 # Temperaturas aleatórias
