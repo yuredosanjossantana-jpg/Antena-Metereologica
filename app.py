@@ -253,11 +253,6 @@ df_media = (
     })
     .reset_index()
 )
-
-st.write("Registros de hoje:", len(df_hoje))
-st.write(df_hoje.head())
-st.write(df_media)
-
 horas = [f"{i:02d}:00" for i in range(24)]
 
 horas = df_media["hora"]
@@ -293,6 +288,11 @@ fig.update_layout(
     yaxis_title="Temperatura (°C)",font=dict(size=22),
     template="plotly_white",
     height=600
+)
+fig.update_xaxes(
+    tickmode="array",
+    tickvals=list(range(24)),
+    ticktext=[f"{h:02d}:00" for h in range(24)]
 )
 
 st.plotly_chart(
