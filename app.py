@@ -240,12 +240,19 @@ data_teste = datetime.date(2026, 5, 29)
 df_hoje = df[
     df["datetime"].dt.date == data_teste
 ]
-
+df_media = (
+    df_hoje
+    .groupby("hora")
+    .agg({
+        "Temperatura": "mean",
+        "Umidade": "mean",
+        "Vento": "mean"
+    })
+    .reset_index()
+)
 st.write("Registros de hoje:", len(df_hoje))
 st.write(df_hoje.head())
-
-st.write(df.head())
-st.write("Quantidade de registros:", len(df))
+st.write(df_media)
 
 horas = [f"{i:02d}:00" for i in range(24)]
 
