@@ -239,11 +239,10 @@ fig.add_trace(
 )
 
 fig.update_layout(
-    title="Temperatura nas Últimas 24 Horas",
     xaxis_title="Hora",
     yaxis_title="Temperatura (°C)",
     template="plotly_white",
-    height=450
+    height=800
 )
 
 st.plotly_chart(
