@@ -45,7 +45,7 @@ eh = (umidade/100) * 6.105 * \
 ta = (
         temperatura
         + 0.33 * eh
-        - 0.70 * vento
+        - 0.70 * (vento/3.6)
         - 4.00
     )
 ta = round(ta,1)
