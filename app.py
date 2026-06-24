@@ -257,7 +257,7 @@ df_media = df_media.set_index("hora")
 df_media = df_media.reindex(range(24))
 horas = [f"{i:02d}:00" for i in range(24)]
 
-horas = df_media["hora"]
+horas = list(range(24))
 
 temperaturas = df_media["Temperatura"]
 
