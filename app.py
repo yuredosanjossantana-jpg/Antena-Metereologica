@@ -229,7 +229,28 @@ df["datetime"] = pd.to_datetime(
     dayfirst=True,
     errors="coerce"
 )
+dias = [
+        (datetime.datetime.now() - datetime.timedelta(days=i)).strftime("%d/%m")
 
+    for i in range(7)]
+dias.reverse()
+for i in range(len(dias)):
+    if datetime.datetime.now().strftime("%d/%m") == dias[i]:
+        dias[i] = "Hoje"
+selection = st.pills(" ", dias, selection_mode="single")
+if selection == "Hoje" or selection is None:
+    data_teste = datetime.date.today()
+else:
+    dia, mes = map(int, selection.split("/"))
+
+    hoje = datetime.date.today()
+
+    data_teste = datetime.date(
+        hoje.year,
+        mes,
+        dia
+    )
+df = carregar_dados()
 # Remove datas inválidas
 df = df.dropna(subset=["datetime"])
 
@@ -296,28 +317,7 @@ st.plotly_chart(
     fig,
     use_container_width=True
 )
-dias = [
-        (datetime.datetime.now() - datetime.timedelta(days=i)).strftime("%d/%m")
 
-    for i in range(7)]
-dias.reverse()
-for i in range(len(dias)):
-    if datetime.datetime.now().strftime("%d/%m") == dias[i]:
-        dias[i] = "Hoje"
-selection = st.pills(" ", dias, selection_mode="single")
-if selection == "Hoje" or selection is None:
-    data_teste = datetime.date.today()
-else:
-    dia, mes = map(int, selection.split("/"))
-
-    hoje = datetime.date.today()
-
-    data_teste = datetime.date(
-        hoje.year,
-        mes,
-        dia
-    )
-df = carregar_dados()
 
 col4, col5, col6 = st.columns(3)
 
