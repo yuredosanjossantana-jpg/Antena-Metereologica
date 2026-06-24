@@ -316,9 +316,12 @@ fig.update_xaxes(
 
 st.plotly_chart(
     fig,
-    use_container_width=True
+    use_container_width=True,
+    config={
+        "scrollZoom": False,
+        "displayModeBar": False
+    }
 )
-
 
 col4, col5, col6 = st.columns(3)
 
