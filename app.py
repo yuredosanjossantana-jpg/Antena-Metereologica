@@ -235,7 +235,7 @@ df["datetime"] = pd.to_datetime(
 df = df.dropna(subset=["datetime"])
 
 # Data de hoje
-data_teste = datetime.date(2026, 5, 29)
+data_teste = datetime.date.today()
 
 df_hoje = df[
     df["datetime"].dt.date == data_teste
@@ -253,6 +253,8 @@ df_media = (
     })
     .reset_index()
 )
+df_media = df_media.set_index("hora")
+df_media = df_media.reindex(range(24))
 horas = [f"{i:02d}:00" for i in range(24)]
 
 horas = df_media["hora"]
