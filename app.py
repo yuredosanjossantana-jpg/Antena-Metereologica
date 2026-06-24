@@ -318,11 +318,11 @@ st.plotly_chart(
     fig,
     use_container_width=True,
     config={
+        "displayModeBar": False,
         "scrollZoom": False,
-        "displayModeBar": False
+        "staticPlot": True
     }
 )
-
 col4, col5, col6 = st.columns(3)
 
 with col4:
