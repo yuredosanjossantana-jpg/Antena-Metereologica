@@ -100,7 +100,7 @@ with col1:
 	st.markdown(
     	f"""
     	<div style="
-        	width:165px;
+        	width:175px;
         	height:120px;
         	background-color:#D0FFCC;
        		border-radius:4px;
@@ -125,7 +125,7 @@ with col2:
 	st.markdown(
     	f"""
     	<div style="
-        	width:165px;
+        	width:175px;
         	height:120px;
         	background-color:#D0FFCC;
        		border-radius:4px;
@@ -151,7 +151,7 @@ with col3:
 	st.markdown(
     	f"""
     	<div style="
-        	width:165px;
+        	width:175px;
         	height:120px;
         	background-color:#D0FFCC;
        		border-radius:4px;
@@ -176,7 +176,7 @@ with col4:
 	st.markdown(
     	f"""
     	<div style="
-        	width:190px;
+        	width:200px;
         	height:120px;
         	background-color:#D0FFCC;
        		border-radius:4px;
