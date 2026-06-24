@@ -320,7 +320,7 @@ st.plotly_chart(
     config={
         "displayModeBar": False,
         "scrollZoom": False,
-        "staticPlot": True
+        "doubleClick": False
     }
 )
 col4, col5, col6 = st.columns(3)
