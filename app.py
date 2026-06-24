@@ -224,7 +224,6 @@ def carregar_dados():
 
     return pd.DataFrame()
 
-df = carregar_dados()
 df["datetime"] = pd.to_datetime(
     df["Data"] + " " + df["Hora"],
     dayfirst=True,
@@ -237,10 +236,6 @@ df = df.dropna(subset=["datetime"])
 df_hoje = df[
     df["datetime"].dt.date == data_teste
 ]
-df_hoje = df[
-    df["datetime"].dt.date == data_teste
-]
-
 df_hoje["hora"] = df_hoje["datetime"].dt.hour
 
 df_media = (
@@ -322,6 +317,7 @@ else:
         mes,
         dia
     )
+df = carregar_dados()
 
 col4, col5, col6 = st.columns(3)
 
