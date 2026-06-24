@@ -224,11 +224,7 @@ def carregar_dados():
 
     return pd.DataFrame()
 
-df["datetime"] = pd.to_datetime(
-    df["Data"] + " " + df["Hora"],
-    dayfirst=True,
-    errors="coerce"
-)
+
 dias = [
         (datetime.datetime.now() - datetime.timedelta(days=i)).strftime("%d/%m")
 
@@ -251,6 +247,11 @@ else:
         dia
     )
 df = carregar_dados()
+df["datetime"] = pd.to_datetime(
+    df["Data"] + " " + df["Hora"],
+    dayfirst=True,
+    errors="coerce"
+)
 # Remove datas inválidas
 df = df.dropna(subset=["datetime"])
 
