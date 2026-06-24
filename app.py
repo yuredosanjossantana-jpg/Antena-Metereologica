@@ -234,9 +234,9 @@ df["datetime"] = pd.to_datetime(
 # Remove datas inválidas
 df = df.dropna(subset=["datetime"])
 
-# Data de hoje
-data_teste = datetime.date.today()
-
+df_hoje = df[
+    df["datetime"].dt.date == data_teste
+]
 df_hoje = df[
     df["datetime"].dt.date == data_teste
 ]
@@ -308,8 +308,20 @@ dias = [
 dias.reverse()
 for i in range(len(dias)):
     if datetime.datetime.now().strftime("%d/%m") == dias[i]:
-        dias[i] = "Agora"
+        dias[i] = "Hoje"
 selection = st.pills(" ", dias, selection_mode="single")
+if selection == "Hoje" or selection is None:
+    data_teste = datetime.date.today()
+else:
+    dia, mes = map(int, selection.split("/"))
+
+    hoje = datetime.date.today()
+
+    data_teste = datetime.date(
+        hoje.year,
+        mes,
+        dia
+    )
 
 col4, col5, col6 = st.columns(3)
 
